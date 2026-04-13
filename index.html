@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritesh Seth - PhD Candidate in Computer Science</title>
+    <meta name="description" content="PhD Candidate in Computer Science at IIIT Delhi, specializing in Algorithm and Computational Geometry">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm dark:shadow-gray-800 z-50 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-xl font-semibold text-primary-700 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors">
+                    Ritesh Seth
+                </a>
+                <button class="md:hidden p-2" id="mobile-menu-btn" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode">
+                        <svg id="theme-icon-sun" class="w-5 h-5 text-yellow-500 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                        </svg>
+                        <svg id="theme-icon-moon" class="w-5 h-5 text-gray-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-primary-600 transition-colors">About</a>
+                    <a href="#research" class="text-gray-600 hover:text-primary-600 transition-colors">Research</a>
+                    <a href="#publications" class="text-gray-600 hover:text-primary-600 transition-colors">Publications</a>
+                    <a href="#education" class="text-gray-600 hover:text-primary-600 transition-colors">Education</a>
+                    <a href="#experience" class="text-gray-600 hover:text-primary-600 transition-colors">Experience</a>
+                    <a href="#teaching" class="text-gray-600 hover:text-primary-600 transition-colors">Teaching</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary-600 transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#about" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">About</a>
+                <a href="#research" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Research</a>
+                <a href="#publications" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Publications</a>
+                <a href="#education" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Education</a>
+                <a href="#experience" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Experience</a>
+                <a href="#teaching" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Teaching</a>
+                <a href="#contact" class="block py-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-shrink-0">
+                    <img src="profile.jpg" alt="Ritesh Seth" class="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-white" style="object-position: center 35%;">
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                        Ritesh Seth
+                    </h1>
+                    <p class="text-xl text-primary-700 font-medium mb-4">
+                        PhD Candidate in Computer Science
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                        Indraprastha Institute of Information Technology, Delhi (IIIT Delhi)
+                    </p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+                        <a href="mailto:riteshs@iiitd.ac.in" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors shadow-md">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            Email
+                        </a>
+                        <a href="CV.pdf" class="inline-flex items-center px-4 py-2 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors shadow-md">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Download CV
+                        </a>
+                        <a href="https://github.com/ritesh-777" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-gray-900 dark:bg-black text-white rounded-lg hover:bg-gray-800 transition-colors shadow-md">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/ritesh-seth-18633015a" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors shadow-md">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400">
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Kolkata, India
+                        </span>
+                        <span class="flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            Algorithm & Computational Geometry
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">About Me</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-justify">
+                    I am a PhD candidate in Computer Science at <strong class="text-primary-700 dark:text-primary-400">IIIT Delhi</strong>, 
+                    where I work on designing algorithms that make smart decisions under uncertainty. My research focuses on 
+                    <strong class="text-primary-700 dark:text-primary-400">online algorithms</strong> and <strong class="text-primary-700 dark:text-primary-400">approximation algorithms</strong>—essentially, 
+                    how to make good choices when you don't have all the information upfront and can't afford to wait for perfect solutions.
+                </p>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-justify">
+                    My journey into algorithms started during my time at ISI Kolkata, where I worked on geometric problems like finding optimal guard positions on terrains 
+                    and computing shortest paths while avoiding obstacles. There's something deeply satisfying about turning geometric intuition into rigorous algorithms. 
+                    These days, I'm drawn to matching and transportation problems, questions like how to efficiently pair ride-sharing requests with drivers or match 
+                    supplies with demands when requests arrive in real-time.
+                </p>
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+                    I've been lucky to learn from and collaborate with wonderful mentors: Prof. Syamantak Das at IIIT Delhi, Prof. Subhas C. Nandy at ISI Kolkata, 
+                    Prof. Anil Maheshwari at Carleton University, and Prof. Sagnik Sen at IIT Dharwad. Our work has appeared at venues like 
+                    <strong class="text-primary-700 dark:text-primary-400">ICLR</strong>, <strong class="text-primary-700 dark:text-primary-400">Computational Geometry: Theory and Applications</strong>, and <strong class="text-primary-700 dark:text-primary-400">CCCG</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Research Interests</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow fade-in-up stagger-1">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Algorithm Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Efficient algorithms for geometric and combinatorial optimization problems</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow fade-in-up stagger-2">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Computational Geometry</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Geometric algorithms, terrain problems, visibility, and guarding problems</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow fade-in-up stagger-3">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Optimization</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Metric matching, minimum height problems, and approximation algorithms</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow fade-in-up stagger-4">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Graph Theory</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Signed graphs, clique numbers, and structural graph properties</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Publications</h2>
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl border-l-4 border-primary-500 hover:border-primary-600 transition-colors fade-in-up stagger-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                Conference
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                                <a href="https://openreview.net/forum?id=wnIanx0r0w" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700 hover:underline">
+                                    Efficient algorithms for Incremental Metric Bipartite Matching
+                                </a>
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                <strong>Ritesh Seth</strong>, Mrinal Garg, Sujoy Bhore, Sharath Raghvendra and Syamantak Das
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                <span class="font-medium">ICLR 2026</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl border-l-4 border-primary-500 hover:border-primary-600 transition-colors fade-in-up stagger-2">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                Journal
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                                <a href="https://www.sciencedirect.com/science/article/abs/pii/S092577212200061X" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700 hover:underline">
+                                    Acrophobic guard watchtower problem
+                                </a>
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                <strong>Ritesh Seth</strong>, Anil Maheshwari and Subhas C Nandy
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                <span class="font-medium">Computational Geometry: Theory and Applications, 2023</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl border-l-4 border-primary-500 hover:border-primary-600 transition-colors fade-in-up stagger-3">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                Conference
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                                <a href="https://projects.cs.dal.ca/cccg2021/proceedings/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700 hover:underline">
+                                    An Acrophobic Guard Watchtower Problem on Terrains
+                                </a>
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                <strong>Ritesh Seth</strong>, Anil Maheshwari and Subhas C Nandy
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                <span class="font-medium">CCCG 2021</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl border-l-4 border-primary-500 hover:border-primary-600 transition-colors fade-in-up stagger-4">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                Conference
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                                <a href="https://link.springer.com/chapter/10.1007/978-3-030-11509-8_20" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700 hover:underline">
+                                    The Relative Signed Clique Number of Planar Graphs is 8
+                                </a>
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-2">
+                                Sandip Das, Soumen Nandi, Sagnik Sen and <strong>Ritesh Seth</strong>
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                <span class="font-medium">CALDAM 2019</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Education</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md fade-in-up stagger-1">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">PhD in Computer Science</h3>
+                            <p class="text-primary-700 dark:text-primary-400 font-medium">
+                                <a href="https://www.iiitd.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    Indraprastha Institute of Information Technology, Delhi (IIIT Delhi)
+                                </a>
+                            </p>
+                        </div>
+                        <span class="text-gray-500 dark:text-gray-400 mt-2 md:mt-0">2022 – Present</span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md fade-in-up stagger-2">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">M.Sc. in Computer Science</h3>
+                            <p class="text-primary-700 dark:text-primary-400 font-medium">
+                                <a href="https://www.rkmvu.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    Ramakrishna Mission Vivekananda Educational and Research Institute
+                                </a>
+                            </p>
+                        </div>
+                        <span class="text-gray-500 dark:text-gray-400 mt-2 md:mt-0">2017 – 2019</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2 text-sm">Thesis: "A survey on homomorphisms of signed graphs"</p>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Supervisors: Prof. Sagnik Sen and Prof. Soumen Nandi</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md fade-in-up stagger-3">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">B.Sc. (Hons.) in Computer Science</h3>
+                            <p class="text-primary-700 dark:text-primary-400 font-medium">
+                                <a href="https://www.caluniv.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    University of Calcutta, Kolkata
+                                </a>
+                            </p>
+                        </div>
+                        <span class="text-gray-500 dark:text-gray-400 mt-2 md:mt-0">2014 – 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Research Experience</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl border-l-4 border-primary-500 fade-in-up">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Research Project in Algorithm and Computational Geometry</h3>
+                            <p class="text-primary-700 dark:text-primary-400 font-medium">
+                                <a href="https://www.isical.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    Indian Statistical Institute, Kolkata
+                                </a>
+                            </p>
+                        </div>
+                        <span class="text-gray-500 dark:text-gray-400 mt-2 md:mt-0">Aug 2019 – Dec 2021</span>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-2">
+                        <strong>Supervisor:</strong> Prof. Subhas C. Nandy
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Focused on: Minimum height watchtower on terrain, Shortest path with obstacle violation, 
+                        1-violation path in simple polygon
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl fade-in-up stagger-1">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Research Internship</h3>
+                        <p class="text-primary-700 dark:text-primary-400 font-medium">
+                            <a href="https://www.iitdh.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                Indian Institute of Technology, Dharwad
+                            </a>
+                        </p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">Feb 2019 – Mar 2019</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Supervisor: Prof. Sagnik Sen</p>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl fade-in-up stagger-2">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Research Internship</h3>
+                        <p class="text-primary-700 dark:text-primary-400 font-medium">
+                            <a href="https://www.isical.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                Indian Statistical Institute, Kolkata
+                            </a>
+                        </p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">Dec 2018 – Jan 2019</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Supervisor: Prof. Soumen Nandi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching -->
+    <section id="teaching" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Teaching Experience</h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Lecturer Experience at RKMVERI -->
+                <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-700 dark:to-gray-700 p-8 rounded-xl border-2 border-primary-300 dark:border-primary-600 fade-in-up">
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <svg class="w-7 h-7 mr-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                        Lecturer Experience
+                    </h3>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Lecturer</h4>
+                                <p class="text-primary-700 dark:text-primary-400 font-medium">
+                                    <a href="https://www.rkmvu.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                        Ramakrishna Mission Vivekananda Educational and Research Institute
+                                    </a>
+                                </p>
+                            </div>
+                            <span class="text-gray-500 dark:text-gray-400 mt-2 md:mt-0">2019 – 2020</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-800 dark:text-gray-200 font-medium">Information Technology in Sports (MSSCT-206)</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">M.Sc. Sports Science Batch 2019-21</p>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Taught basics of Python programming, Machine Learning using Python, and LaTeX</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <div>
+                                    <p class="text-gray-800 dark:text-gray-200 font-medium">Computer Application (PGDY-CP-108)</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">PGDY Batch 2019-20, Department of Sports Science and Yoga</p>
+                                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Taught basics of Computer Applications including Word, Excel, and PowerPoint</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teaching Assistant Experience -->
+                <div class="fade-in-up">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Teaching Assistant at IIIT Delhi
+                    </h3>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-primary-600 text-white">
+                                    <tr>
+                                        <th class="px-6 py-4 text-left font-semibold">Semester</th>
+                                        <th class="px-6 py-4 text-left font-semibold">Course</th>
+                                        <th class="px-6 py-4 text-left font-semibold">Institution</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                    <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Aug 2025 – Dec 2025</td>
+                                    <td class="px-6 py-4">
+                                        <p class="font-medium text-gray-900 dark:text-white">Usable Security and Privacy (CSE547)</p>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Jan 2025 – May 2025</td>
+                                        <td class="px-6 py-4">
+                                            <p class="font-medium text-gray-900 dark:text-white">Analysis and Design of Algorithms (CSE222)</p>
+                                        </td>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Aug 2024 – Dec 2024</td>
+                                        <td class="px-6 py-4">
+                                            <p class="font-medium text-gray-900 dark:text-white">Modern Algorithm Design (CSE519)</p>
+                                        </td>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Jan 2024 – May 2024</td>
+                                        <td class="px-6 py-4">
+                                            <p class="font-medium text-gray-900 dark:text-white">Analysis and Design of Algorithms (CSE222)</p>
+                                        </td>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Aug 2023 – Dec 2023</td>
+                                        <td class="px-6 py-4">
+                                            <p class="font-medium text-gray-900 dark:text-white">Modern Algorithm Design (CSE519)</p>
+                                        </td>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Jan 2023 – May 2023</td>
+                                        <td class="px-6 py-4">
+                                            <p class="font-medium text-gray-900 dark:text-white">Analysis and Design of Algorithms (CSE222)</p>
+                                        </td>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Aug 2022 – Dec 2022</td>
+                                        <td class="px-6 py-4">
+                                            <p class="font-medium text-gray-900 dark:text-white">Introduction to Graduate Algorithms (CSE525)</p>
+                                        </td>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">Jan 2022 – May 2022</td>
+                                        <td class="px-6 py-4">
+                                            <p class="font-medium text-gray-900 dark:text-white">Analysis and Design of Algorithms (CSE222)</p>
+                                        </td>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-400">IIIT Delhi</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Awards & Funding</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-gray-700 dark:to-gray-700 p-6 rounded-xl border border-yellow-200 dark:border-yellow-600 fade-in-up stagger-1">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Swami Vivekananda Merit-Cum-Means Scholarship</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Government of West Bengal, India</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">2017 – 2019</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-700 dark:to-gray-700 p-6 rounded-xl border border-primary-200 dark:border-primary-600 fade-in-up stagger-2">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">ACM Funding</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Geometric Algorithms Summer School, NISER Bhubaneswar</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">June 2019</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-700 dark:to-gray-700 p-6 rounded-xl border border-primary-200 dark:border-primary-600 fade-in-up stagger-3">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Research Internship Funding</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">IIT Dharwad, Supervisor: Prof. Sagnik Sen</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Feb – Mar 2019</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-700 dark:to-gray-700 p-6 rounded-xl border border-primary-200 dark:border-primary-600 fade-in-up stagger-4">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">ELGGA Conference Funding</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">BITS Pilani, Hyderabad (ACSDM)</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Sep 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Technical Skills</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md fade-in-up stagger-1">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Programming Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">C</span>
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">C++</span>
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">Python</span>
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">CUDA</span>
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">Visual Basic</span>
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">Visual C++</span>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md fade-in-up stagger-2">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                        Tools & Frameworks
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">Scikit-Learn</span>
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">Keras</span>
+                        <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">PyTorch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center fade-in-up">Contact</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-1 gap-8 mb-12">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl fade-in-up">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-6 text-center">Get in Touch</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white mb-1">Email</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">riteshs@iiitd.ac.in</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">ritesh1996seth2015@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white mb-1">Office Address</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">B-513 (Theory Lab), 5th Floor, R&D Building</p>
+                                    <p class="text-gray-600 dark:text-gray-400 text-sm">IIIT Delhi, New Delhi, Delhi 110020, India</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-gray-900 dark:text-gray-100 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white mb-1">GitHub</p>
+                                    <a href="https://github.com/ritesh-777" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline text-sm font-medium">
+                                        github.com/ritesh-777
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-blue-700 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white mb-1">LinkedIn</p>
+                                    <a href="https://www.linkedin.com/in/ritesh-seth-18633015a" target="_blank" rel="noopener noreferrer" class="text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 hover:underline text-sm font-medium">
+                                        linkedin.com/in/ritesh-seth-18633015a
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- References -->
+                <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl fade-in-up">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">References</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="font-semibold text-gray-900 dark:text-white">Dr. Syamantak Das</p>
+                            <p class="text-primary-700 dark:text-primary-400">
+                                Professor, 
+                                <a href="https://www.iiitd.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    IIIT Delhi
+                                </a>
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">syamantak@iiitd.ac.in</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 dark:text-white">Prof. Anil Maheshwari</p>
+                            <p class="text-primary-700 dark:text-primary-400">
+                                Professor, 
+                                <a href="https://carleton.ca" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    Carleton University
+                                </a>
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">anil@scs.carleton.ca</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 dark:text-white">Prof. Subhas C. Nandy</p>
+                            <p class="text-primary-700 dark:text-primary-400">
+                                Professor, 
+                                <a href="https://www.isical.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    ISI Kolkata
+                                </a>
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">nandysc@isical.ac.in</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900 dark:text-white">Prof. Sagnik Sen</p>
+                            <p class="text-primary-700 dark:text-primary-400">
+                                Assistant Professor, 
+                                <a href="https://www.iitdh.ac.in" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-primary-300 hover:underline">
+                                    IIT Dharwad
+                                </a>
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">sen@iitdh.ac.in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-center md:text-left">
+                    <p class="text-gray-400">
+                        &copy; 2026 Ritesh Seth. All rights reserved.
+                    </p>
+                    <p class="text-gray-500 text-sm mt-1">
+                        PhD Candidate in Computer Science @ IIIT Delhi
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://github.com/ritesh-777" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ritesh-seth-18633015a" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
