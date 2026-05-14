@@ -9,8 +9,9 @@ body {
 }
 
 /* Fix mobile overflow - ensure no element exceeds viewport */
-* {
+img, video, canvas {
     max-width: 100%;
+    height: auto;
 }
 
 /* Fix for sections that might cause overflow */
