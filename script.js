@@ -52,19 +52,30 @@ const observerOptions = {
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+        console.log('Observer entry:', {
+            target: entry.target.tagName,
+            classes: entry.target.className,
+            isIntersecting: entry.isIntersecting,
+            intersectionRatio: entry.intersectionRatio
+        });
         if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+            console.log('Adding visible to:', entry.target);
             entry.target.classList.add('visible');
         }
     });
 }, observerOptions);
 
 // Observe all elements with animation classes (NOT sections - they get fade-in)
-document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right').forEach(el => {
+const fadeUpElements = document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right');
+console.log('Found fade-in-up elements:', fadeUpElements.length);
+fadeUpElements.forEach(el => {
     observer.observe(el);
 });
 
 // Observe sections separately for fade-in effect
-document.querySelectorAll('section').forEach(section => {
+const allSections = document.querySelectorAll('section');
+console.log('Found sections:', allSections.length);
+allSections.forEach(section => {
     section.classList.add('fade-in');
     observer.observe(section);
 });
