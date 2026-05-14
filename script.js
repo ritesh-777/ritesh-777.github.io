@@ -46,27 +46,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Intersection Observer for animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
             entry.target.classList.add('visible');
         }
     });
 }, observerOptions);
 
-// Observe sections and elements with animation classes
+// Observe all elements with animation classes (NOT sections - they get fade-in)
+document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right').forEach(el => {
+    observer.observe(el);
+});
+
+// Observe sections separately for fade-in effect
 document.querySelectorAll('section').forEach(section => {
     section.classList.add('fade-in');
     observer.observe(section);
-});
-
-// Observe cards and other elements
-document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right').forEach(el => {
-    observer.observe(el);
 });
 
 // Navbar background on scroll
