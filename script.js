@@ -12,49 +12,6 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
-// Mobile menu toggle - wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-
-    function toggleMobileMenu() {
-        const isClosed = mobileMenu.classList.contains('translate-x-full');
-        if (isClosed) {
-            // Open menu
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenuOverlay.classList.remove('hidden');
-            console.log('Menu opened');
-        } else {
-            // Close menu
-            mobileMenu.classList.add('translate-x-full');
-            mobileMenuOverlay.classList.add('hidden');
-            console.log('Menu closed');
-        }
-    }
-
-    if (mobileMenuBtn && mobileMenu && mobileMenuOverlay) {
-        console.log('Mobile menu elements found, attaching listeners');
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('translate-x-full');
-                mobileMenuOverlay.classList.add('hidden');
-            });
-        });
-    } else {
-        console.error('Mobile menu elements NOT found:', {
-            btn: !!mobileMenuBtn,
-            menu: !!mobileMenu,
-            overlay: !!mobileMenuOverlay
-        });
-    }
-});
-
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
