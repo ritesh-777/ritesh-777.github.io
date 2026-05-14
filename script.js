@@ -19,11 +19,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
     function toggleMobileMenu() {
-        mobileMenu.classList.toggle('translate-x-full');
-        mobileMenuOverlay.classList.toggle('hidden');
+        const isClosed = mobileMenu.classList.contains('translate-x-full');
+        if (isClosed) {
+            // Open menu
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenuOverlay.classList.remove('hidden');
+            console.log('Menu opened');
+        } else {
+            // Close menu
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+            console.log('Menu closed');
+        }
     }
 
     if (mobileMenuBtn && mobileMenu && mobileMenuOverlay) {
+        console.log('Mobile menu elements found, attaching listeners');
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
         mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
 
@@ -34,6 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenu.classList.add('translate-x-full');
                 mobileMenuOverlay.classList.add('hidden');
             });
+        });
+    } else {
+        console.error('Mobile menu elements NOT found:', {
+            btn: !!mobileMenuBtn,
+            menu: !!mobileMenu,
+            overlay: !!mobileMenuOverlay
         });
     }
 });
