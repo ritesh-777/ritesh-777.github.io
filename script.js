@@ -66,7 +66,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all elements with animation classes
-const animatedElements = document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right, .hero-profile, .hero-name, .hero-title, .hero-subtitle, .hero-buttons, .hero-meta');
+const animatedElements = document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right, .hero-profile, .hero-name, .hero-title, .hero-subtitle, .hero-buttons, .hero-meta, .section-header, .card-scale, .slide-from-left, .slide-from-right, .card-fade-up, .alt-slide-left, .alt-slide-right, .award-highlight, .award-card, .contact-icon, .contact-text, .skill-tag');
 console.log('Found animated elements:', animatedElements.length);
 animatedElements.forEach(el => {
     observer.observe(el);

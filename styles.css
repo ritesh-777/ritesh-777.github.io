@@ -107,6 +107,148 @@ html {
     opacity: 1 !important;
 }
 
+/* Section Headers - Slide Down from Top */
+.section-header {
+    opacity: 0 !important;
+    transform: translateY(-40px) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+}
+
+.section-header.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Card Grid - Scale In Staggered */
+.card-scale {
+    opacity: 0 !important;
+    transform: scale(0.9) !important;
+    transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.card-scale.visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* List Items - Slide from Left */
+.slide-from-left {
+    opacity: 0 !important;
+    transform: translateX(-40px) !important;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out !important;
+}
+
+.slide-from-left.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* List Items - Slide from Right */
+.slide-from-right {
+    opacity: 0 !important;
+    transform: translateX(40px) !important;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out !important;
+}
+
+.slide-from-right.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Publication/Workshop Cards - Fade Up with Slide */
+.card-fade-up {
+    opacity: 0 !important;
+    transform: translateY(40px) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+}
+
+.card-fade-up.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Education/Experience Cards - Alternating Slide */
+.alt-slide-left {
+    opacity: 0 !important;
+    transform: translateX(-50px) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+}
+
+.alt-slide-left.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.alt-slide-right {
+    opacity: 0 !important;
+    transform: translateX(50px) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+}
+
+.alt-slide-right.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Awards - Special Highlight Animation */
+.award-highlight {
+    opacity: 0 !important;
+    transform: scale(0.95) translateY(30px) !important;
+    transition: opacity 1s cubic-bezier(0.34, 1.56, 0.64, 1), transform 1s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.award-highlight.visible {
+    opacity: 1 !important;
+    transform: scale(1) translateY(0) !important;
+}
+
+/* Award Cards - Staggered Scale */
+.award-card {
+    opacity: 0 !important;
+    transform: scale(0.92) !important;
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out !important;
+}
+
+.award-card.visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* Contact Info - Icon Bounce + Text Fade */
+.contact-icon {
+    opacity: 0 !important;
+    transform: scale(0) !important;
+    transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.contact-icon.visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+.contact-text {
+    opacity: 0 !important;
+    transform: translateX(20px) !important;
+    transition: opacity 0.6s ease-out 0.1s, transform 0.6s ease-out 0.1s !important;
+}
+
+.contact-text.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Skills Tags - Pop In Sequence */
+.skill-tag {
+    opacity: 0 !important;
+    transform: scale(0.8) !important;
+    transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.skill-tag.visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
 /* Fade In */
 .fade-in {
     opacity: 0;
