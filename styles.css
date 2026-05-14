@@ -1,6 +1,26 @@
 /* Custom Styles */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Fix mobile overflow - ensure no element exceeds viewport */
+* {
+    max-width: 100%;
+}
+
+/* Fix for sections that might cause overflow */
+section {
+    overflow-x: hidden;
+}
+
+/* Ensure grid containers don't overflow */
+.grid {
+    max-width: 100%;
 }
 
 /* Custom scrollbar */
@@ -433,6 +453,7 @@ html {
 /* 3. Link Underline Animations - Navigation Links */
 nav a:not(.block) {
     position: relative;
+    display: inline-block;
 }
 
 nav a:not(.block)::after {
@@ -447,6 +468,28 @@ nav a:not(.block)::after {
 }
 
 nav a:not(.block):hover::after {
+    width: 100%;
+}
+
+/* All inline links - underline animation */
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg) {
+    position: relative;
+    display: inline-block;
+}
+
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.3s ease;
+    opacity: 0.6;
+}
+
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):hover::after {
     width: 100%;
 }
 
