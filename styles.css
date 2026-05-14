@@ -365,23 +365,21 @@ html {
     }
 }
 
-/* ===== HOVER EFFECTS ===== */
+/* ===== HOVER EFFECTS (after animations complete) ===== */
 
 /* 1. Card Lift Effect - Research Interest Cards */
-#research .card-scale {
+#research .card-scale.visible {
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                box-shadow 0.3s ease,
-                opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
-                transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+                box-shadow 0.3s ease !important;
 }
 
-#research .card-scale:hover {
+#research .card-scale.visible:hover {
     transform: translateY(-8px) scale(1.02) !important;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
                 0 0 0 1px rgba(14, 165, 233, 0.1);
 }
 
-.dark #research .card-scale:hover {
+.dark #research .card-scale.visible:hover {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
                 0 0 0 1px rgba(14, 165, 233, 0.3);
 }
