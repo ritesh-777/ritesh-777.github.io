@@ -98,16 +98,8 @@ html {
     transform: translateX(5px);
 }
 
-/* Mobile menu animation */
-#mobile-menu {
-    transition: max-height 0.3s ease-in-out;
-    max-height: 0;
-    overflow: hidden;
-}
-
-#mobile-menu.active {
-    max-height: 300px;
-}
+/* Mobile menu - slide from right animation (Tailwind handles this) */
+/* No additional CSS needed - Tailwind classes control visibility */
 
 /* Profile placeholder animation */
 .hero-avatar {
