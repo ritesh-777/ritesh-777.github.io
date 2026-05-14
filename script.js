@@ -65,10 +65,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all elements with animation classes (NOT sections - they get fade-in)
-const fadeUpElements = document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right');
-console.log('Found fade-in-up elements:', fadeUpElements.length);
-fadeUpElements.forEach(el => {
+// Observe all elements with animation classes
+const animatedElements = document.querySelectorAll('.fade-in-up, .scale-in, .slide-in-left, .slide-in-right, .hero-profile, .hero-name, .hero-title, .hero-subtitle, .hero-buttons, .hero-meta');
+console.log('Found animated elements:', animatedElements.length);
+animatedElements.forEach(el => {
     observer.observe(el);
 });
 
