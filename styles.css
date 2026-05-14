@@ -364,3 +364,293 @@ html {
         color: black;
     }
 }
+
+/* ===== HOVER EFFECTS ===== */
+
+/* 1. Card Lift Effect - Research Interest Cards */
+#research .card-scale {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease,
+                opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+#research .card-scale:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
+                0 0 0 1px rgba(14, 165, 233, 0.1);
+}
+
+.dark #research .card-scale:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 0 1px rgba(14, 165, 233, 0.3);
+}
+
+/* 2. Button Glow Effects - Hero Section Buttons */
+.hero-buttons a {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.hero-buttons a:hover::before {
+    left: 100%;
+}
+
+.hero-buttons a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+}
+
+.dark .hero-buttons a:hover {
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.6);
+}
+
+/* GitHub button specific glow */
+.hero-buttons a[href*="github.com"]:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* LinkedIn button specific glow */
+.hero-buttons a[href*="linkedin.com"]:hover {
+    box-shadow: 0 8px 20px rgba(59, 89, 152, 0.5);
+}
+
+/* CV download button hover */
+.hero-buttons a[href*="CV.pdf"]:hover {
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+}
+
+/* 3. Link Underline Animations - Navigation Links */
+nav a:not(.block) {
+    position: relative;
+}
+
+nav a:not(.block)::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #0ea5e9, #0284c7);
+    transition: width 0.3s ease;
+}
+
+nav a:not(.block):hover::after {
+    width: 100%;
+}
+
+/* Mobile menu links - simpler underline */
+nav a.block {
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+nav a.block::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 100%;
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: 8px;
+    transition: width 0.2s ease;
+    z-index: -1;
+}
+
+nav a.block:hover::before {
+    width: 100%;
+}
+
+/* 4. Publication Cards - Enhanced Border Highlight */
+#publications .bg-gray-50 {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+#publications .bg-gray-50::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.75rem;
+    box-shadow: inset 0 0 0 0 rgba(14, 165, 233, 0);
+    transition: box-shadow 0.4s ease;
+    pointer-events: none;
+}
+
+#publications .bg-gray-50:hover {
+    transform: translateX(8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark #publications .bg-gray-50:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#publications .bg-gray-50:hover::before {
+    box-shadow: inset 0 0 0 2px rgba(14, 165, 233, 0.3);
+}
+
+/* Border color intensification on hover */
+#publications .border-blue-500:hover {
+    border-left-width: 6px;
+    border-left-color: #0284c7;
+    margin-left: -2px;
+}
+
+#publications .border-emerald-500:hover {
+    border-left-width: 6px;
+    border-left-color: #059669;
+    margin-left: -2px;
+}
+
+.dark #publications .border-blue-500:hover {
+    border-left-color: #38bdf8;
+}
+
+.dark #publications .border-emerald-500:hover {
+    border-left-color: #34d399;
+}
+
+/* 5. Workshop Cards Hover Enhancement */
+#workshops .card-fade-up {
+    transition: all 0.3s ease;
+}
+
+#workshops .card-fade-up:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.dark #workshops .card-fade-up:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Border enhancement on hover */
+#workshops .border-purple-500:hover {
+    border-left-width: 6px;
+    border-left-color: #9333ea;
+    margin-left: -2px;
+}
+
+#workshops .border-teal-400:hover {
+    border-left-width: 6px;
+    border-left-color: #0d9488;
+    margin-left: -2px;
+}
+
+#workshops .border-blue-400:hover {
+    border-left-width: 6px;
+    border-left-color: #0284c7;
+    margin-left: -2px;
+}
+
+.dark #workshops .border-purple-500:hover {
+    border-left-color: #c084fc;
+}
+
+.dark #workshops .border-teal-400:hover {
+    border-left-color: #2dd4bf;
+}
+
+.dark #workshops .border-blue-400:hover {
+    border-left-color: #38bdf8;
+}
+
+/* 6. Education/Experience/Awards Cards */
+#education .card-scale,
+#experience .card-scale,
+#awards .award-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease,
+                opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+#education .card-scale:hover,
+#experience .card-scale:hover,
+#awards .award-card:hover {
+    transform: translateY(-6px) scale(1.01) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.dark #education .card-scale:hover,
+.dark #experience .card-scale:hover,
+.dark #awards .award-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* 7. Contact Section Icon Hover */
+#contact .contact-icon {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.6s ease-out,
+                color 0.3s ease;
+}
+
+#contact .contact-icon:hover {
+    color: #0ea5e9;
+    transform: scale(1.15) !important;
+}
+
+/* 8. Skill Tags Hover Pop */
+#skills .skill-tag {
+    transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background-color 0.3s ease,
+                color 0.3s ease;
+}
+
+#skills .skill-tag:hover {
+    background-color: #0ea5e9;
+    color: white;
+    transform: scale(1.1) !important;
+}
+
+/* 9. About Section Text Hover Highlight */
+#about p strong {
+    transition: color 0.3s ease,
+                text-shadow 0.3s ease;
+}
+
+#about p:hover strong {
+    color: #0284c7;
+}
+
+.dark #about p:hover strong {
+    color: #38bdf8;
+}
+
+/* 10. Section Header Hover Accent */
+.section-header {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-divider::after {
+    transition: width 0.3s ease,
+                opacity 0.3s ease;
+}
+
+.section-header:hover + .section-divider::after,
+.section-divider:hover::after {
+    width: 80px;
+    opacity: 1;
+}
