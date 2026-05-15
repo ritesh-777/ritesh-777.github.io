@@ -45,6 +45,15 @@ section {
     background: #0284c7;
 }
 
+/* Dark mode scrollbar thumb */
+.dark ::-webkit-scrollbar-thumb {
+    background: #0ea5e9;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
+
 /* Animation classes - Fade In Up */
 .fade-in-up {
     opacity: 0 !important;
