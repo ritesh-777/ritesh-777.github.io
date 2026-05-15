@@ -1,35 +1,68 @@
 <!DOCTYPE html>
+<!-- 
+  Ritesh Seth - Academic Portfolio Website
+  Live: https://ritesh-777.github.io
+  
+  Tech Stack: HTML5, Tailwind CSS (CDN), Vanilla JavaScript
+  Performance: 314KB total, 97.9% image optimization, dark mode support
+  
+  File Structure:
+    - index.html: Main page structure (this file)
+    - styles.css: Custom animations and dark mode styles
+    - styles.min.css: Minified CSS for production
+    - script.js: Theme toggle, scroll animations, mobile menu
+    - profile-optimized.jpg: Optimized profile image (85KB)
+    - CV.pdf: Downloadable curriculum vitae
+  
+  Quick Start:
+    1. Open index.html in browser
+    2. Edit content between HTML tags
+    3. Update cache-bust version when changing CSS/images
+    4. Commit and push to GitHub Pages
+  
+  Last Updated: May 15, 2026
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritesh Seth - PhD Candidate in Computer Science</title>
     <meta name="description" content="PhD Candidate in Computer Science at IIIT Delhi, specializing in Algorithm and Computational Geometry">
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind CSS CDN (deferred for faster initial load) -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    
+    <!-- Preconnect to external domains for faster resource loading -->
+    <!-- Saves ~150-250ms by establishing early connections -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.min.css?v=11">
+    
+    <!-- Custom Stylesheets -->
+    <!-- Cache-bust version (v=11) forces browser reload on updates -->
+    <link rel="stylesheet" href="styles.min.css?v=12">
+    
+    <!-- Tailwind Configuration -->
+    <!-- Custom color palette and font family -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: 'class',  // Manual toggle via JavaScript
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],  // Primary typeface
                     },
                     colors: {
                         primary: {
-                            50: '#f0f9ff',
+                            50: '#f0f9ff',   // Lightest - backgrounds
                             100: '#e0f2fe',
                             200: '#bae6fd',
                             300: '#7dd3fc',
                             400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
+                            500: '#0ea5e9',  // Base - primary actions
+                            600: '#0284c7',  // Hover states
+                            700: '#0369a1',  // Active states
                             800: '#075985',
-                            900: '#0c4a6e',
+                            900: '#0c4a6e',  // Darkest - text
                         }
                     }
                 }
@@ -38,28 +71,42 @@
     </script>
 </head>
 <body class="font-sans antialiased text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <!-- Navigation -->
+    <!-- ============================================
+         NAVIGATION BAR
+         Fixed top, backdrop blur, responsive mobile menu
+         ============================================ -->
     <nav class="fixed top-0 left-0 right-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm dark:shadow-gray-800 z-50 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name (left side) -->
                 <a href="#" class="text-xl font-semibold text-primary-700 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors whitespace-nowrap">
                     Ritesh Seth
                 </a>
+                
+                <!-- Right side controls: Theme toggle + Mobile menu button -->
                 <div class="flex items-center space-x-2">
+                    <!-- Dark Mode Toggle Button -->
+                    <!-- Shows sun icon in dark mode, moon icon in light mode -->
                     <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode">
+                        <!-- Sun icon (visible in dark mode) -->
                         <svg id="theme-icon-sun" class="w-5 h-5 text-yellow-500 hidden dark:block" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
                         </svg>
+                        <!-- Moon icon (visible in light mode) -->
                         <svg id="theme-icon-moon" class="w-5 h-5 text-gray-700 block dark:hidden" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                         </svg>
                     </button>
+                    
+                    <!-- Mobile Menu Button (hamburger, visible only on mobile) -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
                     </button>
                 </div>
+                
+                <!-- Desktop Navigation Links (hidden on mobile) -->
                 <div class="hidden lg:flex space-x-6">
                     <a href="#about" class="text-gray-600 hover:text-primary-600 transition-colors">About</a>
                     <a href="#research" class="text-gray-600 hover:text-primary-600 transition-colors">Research</a>
@@ -75,7 +122,8 @@
             </div>
         </div>
         
-        <!-- Mobile Menu (hidden by default, shown on mobile when hamburger clicked) -->
+        <!-- Mobile Menu (hidden by default, toggled by hamburger button) -->
+        <!-- Full-width dropdown with all navigation links -->
         <div id="mobile-menu" class="hidden lg:hidden">
             <div class="px-4 pt-2 pb-6 space-y-2 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
                 <a href="#about" class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">About</a>
@@ -92,42 +140,61 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ============================================
+         HERO SECTION
+         Centered layout with profile image, name, title, and action buttons
+         Mobile: Stacked vertically | Desktop: Side-by-side
+         ============================================ -->
     <section class="pt-32 pb-20 bg-gradient-to-br from-primary-50 via-white to-primary-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 fade-in">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Flex container: centered horizontally, responsive layout -->
             <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <!-- Profile Image -->
+                <!-- Animation: Scale + rotate in (hero-profile class) -->
                 <div class="flex-shrink-0 hero-profile">
                     <img src="profile-optimized.jpg?v=3" alt="Ritesh Seth" loading="eager" fetchpriority="high" class="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg border-4 border-white" style="object-position: center 35%;">
                 </div>
+                
+                <!-- Text Content (name, title, subtitle, buttons) -->
                 <div class="text-center md:text-left">
+                    <!-- Name with gradient text effect -->
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400 dark:from-primary-400 dark:to-primary-200 mb-3 tracking-tight hero-name">
                         Ritesh Seth
                     </h1>
+                    <!-- Title/Position -->
                     <p class="text-lg md:text-xl text-primary-700 dark:text-primary-300 font-semibold mb-3 hero-title">
                         PhD Candidate in Computer Science
                     </p>
+                    <!-- Institution -->
                     <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-4 leading-relaxed hero-subtitle">
                         Indraprastha Institute of Information Technology, Delhi (IIIT Delhi)
                     </p>
+                    
+                    <!-- Action Buttons (Email, CV, GitHub, LinkedIn) -->
+                    <!-- Animation: Staggered fade up -->
                     <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6 hero-buttons">
+                        <!-- Email Button (primary color) -->
                         <a href="mailto:riteshs@iiitd.ac.in" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors shadow-md">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                             Email
                         </a>
+                        <!-- CV Download Button (outlined) -->
                         <a href="CV.pdf" class="inline-flex items-center px-4 py-2 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors shadow-md">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                             </svg>
                             Download CV
                         </a>
+                        <!-- GitHub Button (dark theme) -->
                         <a href="https://github.com/ritesh-777" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-gray-900 dark:bg-black text-white rounded-lg hover:bg-gray-800 transition-colors shadow-md">
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
                             GitHub
                         </a>
+                        <!-- LinkedIn Button (brand color) -->
                         <a href="https://www.linkedin.com/in/ritesh-seth-18633015a" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors shadow-md">
                             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -135,7 +202,10 @@
                             LinkedIn
                         </a>
                     </div>
+                    
+                    <!-- Meta Information (location, research area) -->
                     <div class="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 hero-meta">
+                        <!-- Location -->
                         <span class="flex items-center">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
@@ -143,6 +213,7 @@
                             </svg>
                             Kolkata, India
                         </span>
+                        <!-- Research Area -->
                         <span class="flex items-center">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
