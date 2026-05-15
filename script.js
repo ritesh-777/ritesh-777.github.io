@@ -84,9 +84,22 @@ allSections.forEach(section => {
 const nav = document.querySelector('nav');
 let lastScroll = 0;
 
+// Back to top button visibility
+const backToTopBtn = document.getElementById('back-to-top');
+
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
+    // Show/hide back to top button (show after 500px scroll)
+    if (backToTopBtn) {
+        if (currentScroll > 500) {
+            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        }
+    }
+    
+    // Navbar shadow on scroll
     if (currentScroll > 100) {
         nav.classList.add('shadow-md');
     } else {
