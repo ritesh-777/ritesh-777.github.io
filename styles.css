@@ -459,10 +459,11 @@ section {
     box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
 
-/* 3. Link Underline Animations - Navigation Links */
+/* 3. Link Underline Animations - Navigation Links (Glow + Center Expand) */
 nav a:not(.block) {
     position: relative;
     display: inline-block;
+    transition: text-shadow 0.3s ease;
 }
 
 nav a:not(.block)::after {
@@ -470,36 +471,52 @@ nav a:not(.block)::after {
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
     background: linear-gradient(90deg, #0ea5e9, #0284c7);
-    transition: width 0.3s ease;
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav a:not(.block):hover {
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
 }
 
 nav a:not(.block):hover::after {
-    width: 100%;
+    transform: scaleX(1);
 }
 
-/* All inline links - underline animation */
-a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg) {
+/* All external links - Glow + Center Expand (same as nav) */
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a) {
     position: relative;
     display: inline-block;
+    text-decoration: none !important;
+    transition: text-shadow 0.3s ease;
 }
 
-a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg)::after {
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):hover {
+    text-decoration: none !important;
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+}
+
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a)::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0;
-    height: 1px;
-    background: currentColor;
-    transition: width 0.3s ease;
-    opacity: 0.6;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #0ea5e9, #0284c7);
+    box-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):hover::after {
-    width: 100%;
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):hover::after {
+    transform: scaleX(1);
 }
 
 /* Mobile menu links - simpler underline */
