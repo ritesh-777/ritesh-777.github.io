@@ -404,17 +404,18 @@ nav a:not(.block):hover::after {
  transform: scaleX(1);
 }
 /* All external links - Glow + Center Expand (same as nav) */
-a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a) {
+/* Exclude hero buttons to preserve their shimmer animation */
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):not(.hero-buttons a) {
  position: relative;
  display: inline-block;
  text-decoration: none !important;
  transition: text-shadow 0.3s ease;
 }
-a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):hover {
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):not(.hero-buttons a):hover {
  text-decoration: none !important;
  text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
 }
-a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a)::after {
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):not(.hero-buttons a)::after {
  content: '';
  position: absolute;
  bottom: 0;
@@ -427,7 +428,7 @@ a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#
  transform-origin: center;
  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):hover::after {
+a:not([class*="block"]):not([class*="btn"]):not([class*="button"]):not([href^="#"]):not(.svg):not(nav a):not(.hero-buttons a):hover::after {
  transform: scaleX(1);
 }
 /* Mobile menu links - simpler underline */
